@@ -1,4 +1,4 @@
-// VIVAT INNOVATIVE ARDUINO KODE
+// VIVAT INNOVATIONS ARDUINO KODE
 
 // definerer pinNummer for LED_lyset for varm-kaldt lek
 int lys1 = 2;
