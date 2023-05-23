@@ -14,7 +14,7 @@ long duration;           //definerer angittmal
 int distance;            // definerer distanse
 
 // piezo
-const int buzzer = 11;  //buzzer to arduino pin 9 endre PIN
+const int buzzer = 11;  //buzzer pin
 
 //vibrasjonssensor
 int shocksensor = 8;        //input for aa faa info om den blir ristet paa
@@ -44,7 +44,7 @@ void setup() {
 }
 
 void loop() {
-
+  //Resetter avstandsmaaleren
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
 
@@ -64,7 +64,7 @@ void loop() {
   Serial.println(distance);
 
 
-  //if sjekk for ulike avstand -- ulike hendelser
+  //if sjekk for ulike avstand -- ulike LED-lys som lyser opp
   if (distance < 200 && distance > 0) {
     digitalWrite(lys1, HIGH);
   }
@@ -78,6 +78,7 @@ void loop() {
 
   if (distance < 50 && distance > 0) {
       digitalWrite(lys4, HIGH);
+    //naar alle 4 lysene lyser opp (betyr noe er naerme nokk) vil vi vite om prototypen sanser vibrasjon for aa vite at noe dulter bort i den
       if (shocksensorstate == 1) {
         Serial.println("Vibrerer");
         digitalWrite(lysvib, HIGH);
