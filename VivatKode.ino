@@ -1,6 +1,6 @@
 // VIVAT INNOVATIONS ARDUINO KODE
 
-// definerer pinNummer for LED_lyset for varm-kaldt lek
+// definerer pinNummer for LED_lyset for Tampen brenner lek
 int lys1 = 2;
 int lys2 = 3;
 int lys3 = 4;
@@ -13,13 +13,14 @@ const int trigPin = 10;  // Setter av pin for trig av avstandsmaaleren
 long duration;           //definerer angittmal
 int distance;            // definerer distanse
 
-// piezo
+// piezo (Komponenten som lager lyd) 
 const int buzzer = 11;  //buzzer pin
 
 //vibrasjonssensor
 int shocksensor = 8;        //input for aa faa info om den blir ristet paa
 bool shocksensorstate = 0;  //ja eller nei
 
+//Kaller paa setup funksjonen naar arduinoen starter opp
 void setup() {
   //pinmode avstandsmaaleren
   pinMode(trigPin, OUTPUT);  // trigpin som output for aa sende ut lyd
@@ -39,7 +40,7 @@ void setup() {
   pinMode(shocksensor, INPUT);
   shocksensorstate = digitalRead(shocksensor);
 
-  //for aa printe ut
+  //for aa printe ut svar
   Serial.begin(9600);
 }
 
@@ -83,7 +84,7 @@ void loop() {
         Serial.println("Vibrerer");
         digitalWrite(lysvib, HIGH);
         delay(1000);
-        tone(buzzer, 1000);  // sender 1KHz lyd signal i 1 sek
+        tone(buzzer, 1000);  // sender 1KHz lydsignal i 1 sek
         delay(1000);
         noTone(buzzer);  // stopper lyd
         delay(1000);
@@ -91,7 +92,7 @@ void loop() {
         } 
         else{
         shocksensorstate = digitalRead(shocksensor);
-        Serial.println("ikke naa lenger");
+        Serial.println("Vibrer ikke naa lenger");
       }
   }
 
@@ -109,7 +110,6 @@ void loop() {
     digitalWrite(lys3, LOW);
     digitalWrite(lys4, LOW);
     digitalWrite(lysvib, LOW);
-    Serial.print("Prover å fjerne");
   }
   if (distance > 100) {
     digitalWrite(lys3, LOW);
