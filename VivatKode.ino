@@ -58,7 +58,7 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
 
   // kalkulerer avstand
-  distance = duration * 0.034 / 2;
+  distance = duration * 0.034 / 2; // Denne linjekoden er et eksemplar fra Circuit Digest (se nederst for mer info)
 
   // printer avstand i serial Monitor
   Serial.print("Distance: ");
@@ -121,3 +121,4 @@ void loop() {
     digitalWrite(lysvib, LOW);
   }
 }
+//Kilde linjekode 61 fra Cicuit: https://circuitdigest.com/microcontroller-projects/arduino-ultrasonic-sensor-based-distance-measurement. Forfatter: Saddam June 27, 2015
