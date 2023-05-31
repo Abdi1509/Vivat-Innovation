@@ -18,7 +18,7 @@ const int buzzer = 11;  //buzzer pin
 
 //vibrasjonssensor
 int shocksensor = 8;        //input for aa faa info om den blir ristet paa
-bool shocksensorstate = 0;  //ja eller nei
+bool shocksensorstate = 0;  //returnerer TRUE eller FALSE paa om den registerer vibrering i form av integer
 
 //Kaller paa setup funksjonen naar arduinoen starter opp
 void setup() {
